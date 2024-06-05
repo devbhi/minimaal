@@ -1,0 +1,22 @@
+{
+  "name": "minimal",
+  "version": "1.0.0",
+  "description": "minimal provides framework for creating server side application using minimal code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devbhi/minimal.git"
+  },
+  "keywords": [
+    "minimal"
+  ],
+  "author": "Abhishek Nale <abhisheknale1709@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devbhi/minimal/issues"
+  },
+  "homepage": "https://github.com/devbhi/minimal#readme"
+}
