@@ -1,8 +1,8 @@
 const minimal = require("../lib/minimal");
-const bodyParser = require("../lib/bodyParser");
 const app = minimal();
 
-app.use(bodyParser);
+app.use(minimal.json());
+app.use(minimal.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
