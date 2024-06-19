@@ -1,6 +1,6 @@
 {
   "name": "minimaal",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "minimaal provides framework for creating server side application using minimal code",
   "main": "./lib/minimaal.js",
   "scripts": {
