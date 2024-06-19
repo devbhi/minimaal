@@ -2,7 +2,7 @@
   "name": "minimal",
   "version": "1.0.0",
   "description": "minimal provides framework for creating server side application using minimal code",
-  "main": "index.js",
+  "main": "./lib/minimal.js",
   "scripts": {
     "devtest": "nodemon test/testing.js",
     "devmon": "nodemon test/mongoose/mongooseTest.js"
@@ -12,14 +12,16 @@
     "url": "git+https://github.com/devbhi/minimal.git"
   },
   "keywords": [
-    "minimal"
+    "minimal",
+    "node.js",
+    "web framework"
   ],
   "author": "Abhishek Nale <abhisheknale1709@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/devbhi/minimal/issues"
   },
-  "homepage": "https://github.com/devbhi/minimal#readme",
+  "homepage": "https://minimal-docs.vercel.app/",
   "dependencies": {
     "body": "^5.1.0",
     "body-parser": "^1.20.2",

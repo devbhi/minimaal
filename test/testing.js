@@ -16,11 +16,19 @@ const app = minimal();
 app.use(minimal.json());
 app.use(minimal.urlencoded({ extended: true }));
 
+// app.use(() => {
+//   // console.log("Hello World1");
+// });
+// app.use(() => {
+//   console.log("Hello World2");
+// });
 // app.get("/", (req, res) => {
 //   res.send("Hello World!)))))))");
 // });
 
-app.get("/", User.find());
+app.get("/", (req, res) => {
+  res.send([1, 2, 3, 4]);
+});
 
 // app.post("/user", (req, res) => {
 //   // console.log(req);
@@ -47,6 +55,20 @@ app.get("/", User.find());
 
 // console.log(typeof a);
 
+const dummyData = {
+  name: "John Doe2",
+  age: 32,
+  email: "john.doe@example.com",
+};
+
+const operations = [
+  { insertOne: { document: dummyData } },
+  {
+    updateOne: { filter: { name: "John Doe" }, update: { $set: { age: 31 } } },
+  },
+  { deleteOne: { filter: { name: "John Doe" } } },
+];
+
 app.post(
   "/user",
   query((req) =>
@@ -72,18 +94,33 @@ app.post(
 app.put(
   "/user",
   query((req) => User.where("name").gt(req.body.name))
-  //   (req, res) => {
-  //   res.json({ message: `User ${req.params.id} Updated`, data: req.body });
-  // }
 );
+//   (req, res) => {
+//   res.json({ message: `User ${req.params.id} Updated`, data: req.body });
+// }
 
 app.delete("/user/:id", (req, res) => {
-  res.status(204).send();
+  console.log(req.params);
 });
+// query((req) => User.where("name").gt(req.body.name))
 
-app.patch("/user/:id", (req, res) => {
-  res.json({ message: `User ${req.params.id} Patched`, data: req.body });
-});
+//   (req, res) => {
+//   res.status(201).send(req.params.id);
+// }
+
+app.patch(
+  "/user",
+  //   async (req, res) => {
+  //   try {
+  //     const result = await User.bulkWrite(operations);
+  //     console.log("Bulk write operation successful:", result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  query(() => User.bulkWrite(operations))
+);
 
 app.listen(4000, () => {
   console.log("Server is running on port $4000");
