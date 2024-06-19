@@ -10,11 +10,11 @@ mongoose
     console.log("Error : ", e);
   });
 
-const minimal = require("../lib/minimal");
-const app = minimal();
+const minimaal = require("../lib/minimaal");
+const app = minimaal();
 
-app.use(minimal.json());
-app.use(minimal.urlencoded({ extended: true }));
+app.use(minimaal.json());
+app.use(minimaal.urlencoded({ extended: true }));
 
 // app.use(() => {
 //   // console.log("Hello World1");
@@ -26,9 +26,10 @@ app.use(minimal.urlencoded({ extended: true }));
 //   res.send("Hello World!)))))))");
 // });
 
-app.get("/", (req, res) => {
-  res.send([1, 2, 3, 4]);
-});
+app.get(
+  "/",
+  query((req) => User.find())
+);
 
 // app.post("/user", (req, res) => {
 //   // console.log(req);
